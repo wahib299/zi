@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Tables - Mariage de Wahib & Diana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a2d9d9;
+            --secondary-color: #8ba898;
+            --gold-color: #d4af7a;
+            --text-color: #5e5245;
+            --light-bg: #fefbf3;
+            --hover-color: #e8f0ed;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="pattern-floral" patternUnits="userSpaceOnUse" width="200" height="200"><path fill="%23fefbf3" d="M0 0h200v200H0z"/><path fill="%23e8e0d5" d="M50 100Q75 80 100 100T150 100" opacity="0.3"/><path fill="%23d4af7a" d="M60 90l10 10M140 90l-10 10M100 60l10 10M100 140l10-10M80 120l10-10M120 80l10 10" stroke="%23d4af7a" stroke-width="1" opacity="0.3"/></pattern></defs><rect width="200" height="200" fill="url(%23pattern-floral)"/></svg>');
+            margin: 0;
+            padding: 30px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(240, 238, 225, 0.8), transparent);
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--gold-color);
+            margin-bottom: 20px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            position: relative;
+        }
+
+        .arabic-script {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 1.8em;
+            color: var(--gold-color);
+            text-align: center;
+            margin-bottom: 20px;
+            direction: rtl;
+        }
+
+        .header-floral {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+
+        .table-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .table-item {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .table-title {
+            padding: 18px 25px;
+            background-color: rgba(162, 217, 217, 0.3);
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .table-title:hover {
+            background-color: rgba(139, 168, 152, 0.3);
+        }
+
+        .table-title i {
+            transition: transform 0.3s ease;
+            color: var(--gold-color);
+        }
+
+        .table-title.rotate i {
+            transform: rotate(180deg);
+        }
+
+        .guest-count {
+            background-color: rgba(212, 175, 122, 0.2);
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            color: var(--gold-color);
+            font-weight: 600;
+        }
+
+        .guests-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: rgba(248, 250, 248, 0.7);
+        }
+
+        .guests-container.open {
+            max-height: 1000px;
+            transition: max-height 0.4s ease-in;
+            padding: 15px 25px;
+        }
+
+        .guests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .guest {
+            background-color: var(--hover-color);
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(139, 168, 152, 0.2);
+            position: relative;
+        }
+
+        .guest::before {
+            content: '❤';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 10px;
+            color: rgba(212, 175, 122, 0.4);
+        }
+
+        .guest:hover {
+            background-color: rgba(162, 217, 217, 0.4);
+            color: var(--text-color);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+        .flower-corner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+        }
+
+        .flower-corner.top-left {
+            top: -20px;
+            left: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q60 0 70 10 Q80 20 75 30 Q85 40 70 45 Q55 50 50 40 Q45 50 30 45 Q15 40 25 30 Q10 20 20 10 Q30 0 50 10" fill="%23d4af7a"/></svg>');
+            background-repeat: no-repeat;
+        }
+
+        .flower-corner.bottom-right {
+            bottom: -20px;
+            right: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 Q60 100 70 90 Q80 80 75 70 Q85 60 70 55 Q55 50 50 60 Q45 50 30 55 Q15 60 25 70 Q10 80 20 90 Q30 100 50 90" fill="%23d4af7a"/></svg>');
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width: 600px) {
+            .guests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flower-corner top-left"></div>
+        <div class="flower-corner bottom-right"></div>
+
+        <div class="arabic-script">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+
+        <h1>Wahib & Diana</h1>
+
+        <div class="table-list" id="table-list">
+            <!-- Les tables seront générées ici -->
+        </div>
+
+        <div class="footer">
+            Samedi 18 avril 2026
+        </div>
+    </div>
+
+    <script>
+        // Données des tables et invités (à modifier directement ici)
+        const tablesData = [{
+                id: "Table 2",
+                guests:  ["Hanine", "Lamia", "Ilham", "Aya", "Adam", "Antar", "Sami", "Sahra", "Merwan"] 
+            }];
+
+        // Génère la liste des tables
+        function renderTables() {
+            const tableList = document.getElementById('table-list');
+            tableList.innerHTML = tablesData.map((table, index) => `
+                <div class="table-item">
+                    <div class="table-title" onclick="toggleTable(${index})">
+                        <span>${table.id}</span>
+                        <div>
+                            <span class="guest-count">${table.guests.length} invité(s)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="guests-container" id="guests-${index}">
+                        <div class="guests-grid">
+                            ${table.guests.map(guest => `<div class="guest">${guest}</div>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Bascule l'affichage d'une table
+        function toggleTable(index) {
+            const container = document.getElementById(`guests-${index}`);
+            const title = container.previousElementSibling;
+
+            container.classList.toggle('open');
+            title.classList.toggle('rotate');
+        }
+
+        // Initialise la page
+        renderTables();
+    </script>
+</body>
+</html>
