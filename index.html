@@ -22,7 +22,6 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--light-bg);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="pattern-floral" patternUnits="userSpaceOnUse" width="200" height="200"><path fill="%23fefbf3" d="M0 0h200v200H0z"/><path fill="%23e8e0d5" d="M50 100Q75 80 100 100T150 100" opacity="0.3"/><path fill="%23d4af7a" d="M60 90l10 10M140 90l-10 10M100 60l10 10M100 140l10-10M80 120l10-10M120 80l10 10" stroke="%23d4af7a" stroke-width="1" opacity="0.3"/></pattern></defs><rect width="200" height="200" fill="url(%23pattern-floral)"/></svg>');
             margin: 0;
             padding: 30px;
             color: var(--text-color);
@@ -41,15 +40,22 @@
             border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(to bottom, rgba(240, 238, 225, 0.8), transparent);
-            pointer-events: none;
+        .arabic-script {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 1.8em;
+            color: var(--gold-color);
+            text-align: center;
+            margin-bottom: 10px;
+            direction: rtl;
+        }
+
+        .quran-verse-translation {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            font-style: italic;
+            color: var(--gold-color);
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -58,24 +64,7 @@
             margin-bottom: 20px;
             font-family: 'Great Vibes', cursive;
             font-size: 2.5em;
-            position: relative;
         }
-
-        .arabic-script {
-            font-family: 'Noto Naskh Arabic', serif;
-            font-size: 1.8em;
-            color: var(--gold-color);
-            text-align: center;
-            margin-bottom: 20px;
-            direction: rtl;
-        }
-
-        .header-floral {
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
 
         .table-list {
             display: flex;
@@ -101,7 +90,6 @@
             justify-content: space-between;
             align-items: center;
             transition: var(--transition);
-            position: relative;
         }
 
         .table-title:hover {
@@ -116,6 +104,7 @@
         .table-title.rotate i {
             transform: rotate(180deg);
         }
+
         .guest-count {
             background-color: rgba(212, 175, 122, 0.2);
             padding: 5px 12px;
@@ -177,27 +166,6 @@
             font-size: 0.9em;
         }
 
-        .flower-corner {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            opacity: 0.3;
-        }
-
-        .flower-corner.top-left {
-            top: -20px;
-            left: -20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q60 0 70 10 Q80 20 75 30 Q85 40 70 45 Q55 50 50 40 Q45 50 30 45 Q15 40 25 30 Q10 20 20 10 Q30 0 50 10" fill="%23d4af7a"/></svg>');
-            background-repeat: no-repeat;
-        }
-
-        .flower-corner.bottom-right {
-            bottom: -20px;
-            right: -20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 Q60 100 70 90 Q80 80 75 70 Q85 60 70 55 Q55 50 50 60 Q45 50 30 55 Q15 60 25 70 Q10 80 20 90 Q30 100 50 90" fill="%23d4af7a"/></svg>');
-            background-repeat: no-repeat;
-        }
-
         @media (max-width: 600px) {
             .guests-grid {
                 grid-template-columns: 1fr;
@@ -207,11 +175,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="flower-corner top-left"></div>
-        <div class="flower-corner bottom-right"></div>
-
         <div class="arabic-script">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+
+        <div class="quran-verse-translation">
+            « Et Nous vous avons créés par paires. »
         </div>
 
         <h1>Wahib & Diana</h1>
@@ -226,11 +195,11 @@
     </div>
 
     <script>
-        // Données des tables et invités (à modifier directement ici)
+        // Données des tables et invités
         const tablesData = [{
-                id: "Table 2",
-                guests:  ["Adel","Antar","Lamine","Ali","Hanine","Ferhat","Bilel","Sofiane"] 
-            }];
+            id: "Table 2",
+            guests: ["Adel", "Antar", "Lamine", "Ali", "Hanine", "Ferhat", "Bilel", "Sofiane"]
+        }];
 
         // Génère la liste des tables
         function renderTables() {
