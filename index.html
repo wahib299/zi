@@ -66,34 +66,8 @@
             font-size: 1.8em;
             color: var(--gold-color);
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             direction: rtl;
-        }
-
-        .quran-verse {
-            text-align: center;
-            margin-bottom: 15px;
-            font-style: italic;
-            color: var(--gold-color);
-        }
-
-        .quran-verse-arabic {
-            font-family: 'Noto Naskh Arabic', serif;
-            font-size: 1.5em;
-            direction: rtl;
-            margin-bottom: 5px;
-        }
-
-        .quran-verse-translation {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            font-style: italic;
-        }
-
-        .quran-source {
-            font-size: 0.8em;
-            color: var(--secondary-color);
-            margin-top: 5px;
         }
 
         .header-floral {
@@ -101,6 +75,7 @@
             margin-bottom: 30px;
             position: relative;
         }
+
 
         .table-list {
             display: flex;
@@ -141,7 +116,6 @@
         .table-title.rotate i {
             transform: rotate(180deg);
         }
-
         .guest-count {
             background-color: rgba(212, 175, 122, 0.2);
             padding: 5px 12px;
@@ -239,13 +213,6 @@
         <div class="arabic-script">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </div>
-            <div class="quran-verse-translation">
-                « Et Nous vous avons créés par paires. »
-            </div>
-            <div class="quran-source">
-                — Coran, Sourate an-Naba (78:8)
-            </div>
-        </div>
 
         <h1>Wahib & Diana</h1>
 
@@ -260,12 +227,10 @@
 
     <script>
         // Données des tables et invités (à modifier directement ici)
-        const tablesData = [
-            {
+        const tablesData = [{
                 id: "Table 2",
-                guests: ["Adel","Antar","Lamine","Ali","Hanine","Ferhat","Bilel","Sofiane"]
-            }
-        ];
+                guests:  ["Adel","Antar","Lamine","Ali","Hanine","Ferhat","Bilel","Sofiane"] 
+            }];
 
         // Génère la liste des tables
         function renderTables() {
